@@ -1207,7 +1207,7 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
         else
         {
             // Check the connection
-            if (prov_info->prov_timeout > 0)
+            if ((prov_info->prov_state != CLIENT_STATE_READY) && (prov_info->prov_timeout > 0))
             {
                 tickcounter_ms_t current_time = 0;
                 (void)tickcounter_get_current_ms(prov_info->tick_counter, &current_time);
